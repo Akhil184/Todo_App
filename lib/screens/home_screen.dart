@@ -38,7 +38,14 @@ List input=[];
               style: TextStyle(fontSize: 22.0),
             ),
           ),
-              Icon(Icons.delete,color:Colors.red,),
+              IconButton(
+                icon: new Icon(Icons.delete,color:Colors.red,),
+                highlightColor: Colors.red,
+                onPressed:(){
+        deleteitem();
+        },
+              ),
+
             ],
           ),
           ),
@@ -85,6 +92,15 @@ List input=[];
            ],
          );
        });
+ }
+
+ deleteitem(){
+    setState(() {
+
+      count=count-1;
+      input.removeAt(count);
+
+    });
  }
 
 }
