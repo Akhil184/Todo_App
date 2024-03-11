@@ -28,13 +28,18 @@ List input=[];
         return Container(
         height:100,
           child:Card(
-          child:
+          child:Row(
+            mainAxisAlignment:MainAxisAlignment.spaceBetween,
+            children: [
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: Text(
               input[position],
               style: TextStyle(fontSize: 22.0),
             ),
+          ),
+              Icon(Icons.delete,color:Colors.red,),
+            ],
           ),
           ),
         );
