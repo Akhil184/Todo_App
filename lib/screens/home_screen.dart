@@ -42,7 +42,7 @@ List input=[];
                 icon: new Icon(Icons.delete,color:Colors.red,),
                 highlightColor: Colors.red,
                 onPressed:(){
-        deleteitem();
+        deleteitem();//
         },
               ),
 
