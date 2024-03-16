@@ -14,6 +14,7 @@ class _MyHomePageState extends State<MyHomePage> {
  TextEditingController Controller=TextEditingController();
   int count=0;
 List input=[];
+ bool valuefirst=false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +23,11 @@ List input=[];
        backgroundColor:Colors.green,
        centerTitle:true,
     ),
-    body:ListView.builder(
+    body:Column(
+    children: [
+      Text('overdue',Colors()),
+    ]
+    ListView.builder(
       itemCount:count,
       itemBuilder: (context, position) {
         return Container(
@@ -31,13 +36,31 @@ List input=[];
           child:Row(
             mainAxisAlignment:MainAxisAlignment.spaceBetween,
             children: [
-          Padding(
+              Checkbox(
+                checkColor: Colors.greenAccent,
+                activeColor: Colors.red,
+                value: this.valuefirst,
+                onChanged: (bool? value) {
+                  setState(() {
+                    this.valuefirst = value ?? true;
+                  });
+                },
+              ),
+              Padding(
             padding: const EdgeInsets.all(20.0),
             child: Text(
               input[position],
               style: TextStyle(fontSize: 22.0),
             ),
           ),
+              // Padding(
+              //   padding: const EdgeInsets.all(20.0),
+              //   child: Text(
+              //     'Pending',
+              //     style: TextStyle(fontSize: 22.0),
+              //   ),
+              // ),
+
               IconButton(
                 icon: new Icon(Icons.delete,color:Colors.red,),
                 highlightColor: Colors.red,
